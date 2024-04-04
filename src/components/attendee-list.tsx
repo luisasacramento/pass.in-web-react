@@ -9,7 +9,8 @@ import {
 import { IconButton } from "./icon-button";
 import { Table } from "./table/table";
 import { TableHeader } from "./table/table-header";
-
+import { TableCell } from "./table/table-cell";
+import { TableRow } from "./table/table.row";
 
 export function AttendeeList() {
   return (
@@ -26,80 +27,82 @@ export function AttendeeList() {
       </div>
 
       <Table>
-          <thead>
-            <tr className="border-b border-white/10">
-              <TableHeader style={{ width: 48 }}>
-                <input type="checkbox" className="size-4 bg-black/20 rounded-md border-white/10 accent-orange-400" />
-              </TableHeader>
-              <TableHeader>Código</TableHeader>
-              <TableHeader>Participante</TableHeader>
-              <TableHeader>Data de Inscrição</TableHeader>
-              <TableHeader>Data do Check-in</TableHeader>
-              <TableHeader style={{ width: 64 }}></TableHeader>
-            </tr>
-          </thead>
-          <tbody>
-            {Array.from({ length: 8 }).map((_, i) => {
-              return (
-                <tr key={i} className="border-b border-white/10 hover:bg-white/5 ">
-                  <td className="py-3 px-4 text-sm text-zinc-300">
-                    <input type="checkbox" className="size-4 bg-black/20 rounded-md border-white/10" />
-                  </td>
-                  <td className="py-3 px-4 text-sm text-zinc-300">12383</td>
-                  <td className="py-3 px-4 text-sm text-zinc-300">
-                    <div className="flex flex-col gap-1">
-                      <span className="font-semibold text-white">
-                        Luisa dos Santos Neves
-                      </span>
-                      <span>luisacristina.sn@icloud.com</span>
-                    </div>
-                  </td>
-                  <td className="py-3 px-4 text-sm text-zinc-300">
-                    7 dias atrás
-                  </td>
-                  <td className="py-3 px-4 text-sm text-zinc-300">
-                    3 dias atrás
-                  </td>
-                  <td className="py-3 px-4 text-sm text-zinc-300">
-                    <IconButton transparent>
-                      <MoreHorizontal className="size-4" />
-                    </IconButton>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-          <tfoot>
-            <tr>
-              <td className="py-3 px-4 text-sm text-zinc-300" colSpan={3}>
-                Mostrando 10 de 228 itens
-              </td>
-              <td className="py-3 px-4 text-sm text-zinc-300 text-right" colSpan={3}>
-
-                
-                  <div className="inline-flex items-center gap-8">
-                  <span>Página 1 de 23</span>
-                  <div className="flex gap-1.5">
-                    <IconButton transparent={false}>
-                      <ChevronsLeft className="size-4" />
-                    </IconButton>
-                    <IconButton transparent={false}>
-                      <ChevronLeft className="size-4" />
-                    </IconButton>
-                    <IconButton transparent={false}>
-                      <ChevronRight className="size-4" />
-                    </IconButton>
-                    <IconButton transparent={false} >
-                      <ChevronsRight className="size-4" />
-                    </IconButton>
+        <thead>
+          <tr className="border-b border-white/10">
+            <TableHeader style={{ width: 48 }}>
+              <input
+                type="checkbox"
+                className="size-4 bg-black/20 rounded-md border-white/10 accent-orange-400"
+              />
+            </TableHeader>
+            <TableHeader>Código</TableHeader>
+            <TableHeader>Participante</TableHeader>
+            <TableHeader>Data de Inscrição</TableHeader>
+            <TableHeader>Data do Check-in</TableHeader>
+            <TableHeader style={{ width: 64 }}></TableHeader>
+          </tr>
+        </thead>
+        <tbody>
+          {Array.from({ length: 8 }).map((_, i) => {
+            return (
+              <TableRow
+                key={i}
+                className="border-b border-white/10 hover:bg-white/5 "
+              >
+                <TableCell>
+                  <input
+                    type="checkbox"
+                    className="size-4 bg-black/20 rounded-md border-white/10"
+                  />
+                </TableCell>
+                <TableCell>12383</TableCell>
+                <TableCell>
+                  <div className="flex flex-col gap-1">
+                    <span className="font-semibold text-white">
+                      Luisa dos Santos Neves
+                    </span>
+                    <span>luisacristina.sn@icloud.com</span>
                   </div>
-                  </div>
-                
-
-              </td>
-            </tr>
-          </tfoot>
-          </Table>
+                </TableCell>
+                <TableCell>7 dias atrás</TableCell>
+                <TableCell>3 dias atrás</TableCell>
+                <TableCell>
+                  <IconButton transparent>
+                    <MoreHorizontal className="size-4" />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            );
+          })}
+        </tbody>
+        <tfoot>
+          <tr>
+            <TableCell colSpan={3}>Mostrando 10 de 228 itens</TableCell>
+            <td
+              className="py-3 px-4 text-sm text-zinc-300 text-right"
+              colSpan={3}
+            >
+              <div className="inline-flex items-center gap-8">
+                <span>Página 1 de 23</span>
+                <div className="flex gap-1.5">
+                  <IconButton transparent={false}>
+                    <ChevronsLeft className="size-4" />
+                  </IconButton>
+                  <IconButton transparent={false}>
+                    <ChevronLeft className="size-4" />
+                  </IconButton>
+                  <IconButton transparent={false}>
+                    <ChevronRight className="size-4" />
+                  </IconButton>
+                  <IconButton transparent={false}>
+                    <ChevronsRight className="size-4" />
+                  </IconButton>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tfoot>
+      </Table>
     </div>
   );
 }
