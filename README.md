@@ -1,5 +1,5 @@
 # React + TypeScript + Vite + Tailwind
 
-## fakerjs, lucide, dayjs
+### instalar fakerjs, lucide, dayjs
 
 
